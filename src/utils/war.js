@@ -53,6 +53,13 @@ export default class War {
   }
 
   playHand() {
+    if (this.pot1.length > 0) {
+      const card1 = this.hand1.draw();
+      const card2 = this.hand2.draw();
+      this.pot1.push(card1);
+      this.pot2.push(card2);
+    }
+
     const card1 = this.hand1.draw();
     const card2 = this.hand2.draw();
     this.pot1.push(card1);
