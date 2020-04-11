@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import { Button, Container } from "@material-ui/core";
 import Hand from "../Hand/Hand";
 import War from "../../utils/war";
 import "./Board.css";
@@ -7,7 +8,6 @@ export default () => {
   const [loading, setLoading] = useState(true);
   const [won, setWon] = useState(false);
   const [wonHand, setWonHand] = useState();
-  const [isAuto, setIsAuto] = useState(false);
   const [hand1, setHand1] = useState([]);
   const [hand2, setHand2] = useState([]);
   const [pot1, setPot1] = useState([]);
@@ -25,7 +25,6 @@ export default () => {
     setPot2([]);
     setWon(false);
     setWonHand(null);
-    setIsAuto(false);
     setLoading(false);
   }
 
@@ -44,16 +43,12 @@ export default () => {
 
     if (hand1.length === 0 || hand2.length === 0) {
       setWon(true);
-      setIsAuto(false);
     }
   }
 
   // Set up initial game
   useEffect(() => setUpGame(), []);
 
-  if (isAuto) {
-    setTimeout(() => play(), 1000);
-  }
   return (
     <div className="Board">
       {loading ? (
@@ -62,11 +57,14 @@ export default () => {
         <h2>User {hand1.length !== 0 ? 1 : 2} won</h2>
       ) : (
         <>
-          <div className="actions">
-            <button onClick={play}>Play</button>
-            <button onClick={setUpGame}>Reset</button>
-            <button onClick={() => setIsAuto(true)}>Auto</button>
-          </div>
+          <Container className="actions">
+            <Button variant="outlined" color="primary" onClick={play}>
+              Play
+            </Button>
+            <Button variant="outlined" color="secondary" onClick={setUpGame}>
+              Reset
+            </Button>
+          </Container>
           <div className="players">
             <div className="player">
               <h2>Player 1</h2>
