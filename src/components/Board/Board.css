@@ -1,0 +1,19 @@
+.Board {
+  display: flex;
+  flex-direction: column;
+}
+
+.Board .players {
+  display: flex;
+  flex-direction: row;
+}
+
+.Board .pot {
+  display: flex;
+  justify-content: space-between;
+  width: 33%;
+}
+
+.Board .player {
+  width: 33%;
+}
