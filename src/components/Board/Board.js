@@ -40,11 +40,8 @@ export default () => {
     setHand1(hand1);
     setHand2(hand2);
 
-    if (result !== 0) {
-      const { hand1, hand2 } = war.getHands();
-      setHand1(hand1);
-      setHand2(hand2);
-    }
+    setWonHand(result);
+
     if (hand1.length === 0 || hand2.length === 0) {
       setWon(true);
       setIsAuto(false);
@@ -55,7 +52,7 @@ export default () => {
   useEffect(() => setUpGame(), []);
 
   if (isAuto) {
-    setTimeout(() => play(), 500);
+    setTimeout(() => play(), 1000);
   }
   return (
     <div className="Board">
