@@ -1,0 +1,13 @@
+.Hand {
+  height: 250px;
+}
+
+.Hand .card {
+  height: 100%;
+  margin-bottom: -247px;
+  position: relative;
+}
+
+.Hand .card img {
+  height: 100%;
+}

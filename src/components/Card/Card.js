@@ -1,5 +1,5 @@
 import React from "react";
-import back from "svg-cards/png/2x/back-red.png";
+import backSvg from "svg-cards/png/2x/back-red.png";
 import "./Card.css";
 
 export function getFileSuit({ suit }) {
@@ -39,7 +39,7 @@ function importImage(card) {
 }
 
 export default ({ card, visible = true }) => {
-  const src = !visible ? back : importImage(card);
+  const src = !visible ? backSvg : importImage(card);
   const alt = !visible ? "Hidden card" : `${card.face} of ${card.suit}`;
   return (
     <div className="Card">
