@@ -1,15 +1,14 @@
-import React from "react";
-import "./App.css";
-import Board from "./components/Board/Board";
 import {
   AppBar,
-  Button,
-  CssBaseline,
   Container,
+  CssBaseline,
   Link,
   Toolbar,
   Typography,
 } from "@material-ui/core";
+import React from "react";
+import "./App.css";
+import Board from "./components/Board/Board";
 
 function App() {
   return (
