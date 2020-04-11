@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { Button, Container } from "@material-ui/core";
 import { Clear as LostIcon, Done as WonIcon } from "@material-ui/icons";
-import Hand from "../Hand/Hand";
+import Deck from "../Deck/Deck";
 import War from "../../utils/war";
 import "./Board.css";
 import Card from "../Card/Card";
@@ -70,39 +70,31 @@ export default () => {
           <div className="players">
             <div className="player">
               <h2>Player 1</h2>
-              <Hand cards={hand1} />
+              <Deck cards={hand1} />
             </div>
             <div className="pot">
               <div className="pot1">
-                {pot1.length > 0 ? (
-                  <h2>
-                    Pot 1
-                    {wonHand === 1 ? (
-                      <WonIcon style={{ color: "green" }} />
-                    ) : (
-                      <LostIcon style={{ color: "red" }} />
-                    )}
-                  </h2>
+                {wonHand === 1 ? (
+                  <WonIcon style={{ color: "green" }} />
+                ) : wonHand === -1 ? (
+                  <LostIcon style={{ color: "red" }} />
                 ) : (
-                  ""
+                  <div>&nbsp;</div>
                 )}
+
                 {pot1.map((p) => (
                   <Card card={p} visible={true} key={p.code} />
                 ))}
               </div>
               <div className="pot2">
-                {pot2.length > 0 ? (
-                  <h2>
-                    Pot 2
-                    {wonHand === -1 ? (
-                      <WonIcon style={{ color: "green" }} />
-                    ) : (
-                      <LostIcon style={{ color: "red" }} />
-                    )}
-                  </h2>
+                {wonHand === -1 ? (
+                  <WonIcon style={{ color: "green" }} />
+                ) : wonHand === 1 ? (
+                  <LostIcon style={{ color: "red" }} />
                 ) : (
-                  ""
+                  <div>&nbsp;</div>
                 )}
+
                 {pot2.map((p) => (
                   <Card card={p} visible={true} key={p.code} />
                 ))}
@@ -110,7 +102,7 @@ export default () => {
             </div>
             <div className="player">
               <h2>Player 2</h2>
-              <Hand cards={hand2} />
+              <Deck cards={hand2} />
             </div>
           </div>
         </>

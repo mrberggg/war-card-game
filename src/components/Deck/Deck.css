@@ -1,13 +1,13 @@
-.Hand {
+.Deck {
   height: 250px;
 }
 
-.Hand .card {
+.Deck .card {
   height: 100%;
   margin-bottom: -247px;
   position: relative;
 }
 
-.Hand .card img {
+.Deck .card img {
   height: 100%;
 }
