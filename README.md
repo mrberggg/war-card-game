@@ -14,3 +14,4 @@ To run tests, run `npm test`
 
 - Customize Material theme
 - Add animations
+- Make mobile friendly
