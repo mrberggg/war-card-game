@@ -1,8 +1,10 @@
 import React, { useState, useEffect } from "react";
 import { Button, Container } from "@material-ui/core";
+import { Clear as LostIcon, Done as WonIcon } from "@material-ui/icons";
 import Hand from "../Hand/Hand";
 import War from "../../utils/war";
 import "./Board.css";
+import Card from "../Card/Card";
 
 export default () => {
   const [loading, setLoading] = useState(true);
@@ -73,22 +75,36 @@ export default () => {
             <div className="pot">
               <div className="pot1">
                 {pot1.length > 0 ? (
-                  <h2>Pot 1{wonHand === 1 ? " +" : ""}</h2>
+                  <h2>
+                    Pot 1
+                    {wonHand === 1 ? (
+                      <WonIcon style={{ color: "green" }} />
+                    ) : (
+                      <LostIcon style={{ color: "red" }} />
+                    )}
+                  </h2>
                 ) : (
                   ""
                 )}
                 {pot1.map((p) => (
-                  <div key={`pot1-${p.code}`}>{`${p.face} of ${p.suit}`}</div>
+                  <Card card={p} visible={true} key={p.code} />
                 ))}
               </div>
               <div className="pot2">
                 {pot2.length > 0 ? (
-                  <h2>Pot 2{wonHand === -1 ? " +" : ""}</h2>
+                  <h2>
+                    Pot 2
+                    {wonHand === -1 ? (
+                      <WonIcon style={{ color: "green" }} />
+                    ) : (
+                      <LostIcon style={{ color: "red" }} />
+                    )}
+                  </h2>
                 ) : (
                   ""
                 )}
                 {pot2.map((p) => (
-                  <div key={`pot2-${p.code}`}>{`${p.face} of ${p.suit}`}</div>
+                  <Card card={p} visible={true} key={p.code} />
                 ))}
               </div>
             </div>
